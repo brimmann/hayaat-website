@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="content">
+    <div id="main">
+        <div id="filter">
+            <div id="element">
+                <span>مرتب سازی</span>
+                <select>
+                    <option>بیشترین بازدید</option>
+                    <option>بیشترین امتیاز</option>
+                    <option>تازه ترین</option>
+                </select>
+            </div>
+        </div>
+        <div id="topics-browser">
+            {% for article in articles %}
+                <div class="topic">
+                    <div class="mobile-picture">
+                        <img src="{{ article.picture_detail.url }}" alt="img">
+                    </div>
+                    <div class="picture">
+                        <img src="{{ article.picture_list.url }}" alt="img">
+                    </div>
+                    <div class="text-header">
+                        <h3> {{ article.title }} </h3>
+                        <p>{{ article.brief }}</p>
+
+                    </div>
+                    <div class="post-items">
+                        <h4>{{ article.date }}</h4>
+                        <div class="rating">
+                            <img src="{% static 'images/star-icon.png' %}" alt="img">
+                            <b>{{ article.rate }}</b>
+
+                        </div>
+                        <a href="{% url 'read' %}">بیشتر بخوانید</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="side-bar">
+        <h2>سوال دارید؟</h2>
+        <p>
+            اگر در بارد زندگی خود و یا از دوست دیگر
+            میخواهید چیزی در باره تغیر بدانید
+        </p>
+        <a id="ask-button" href="{% url 'ask' %}">
+            بپرسید
+        </a>
+        <div id="social-media-icons">
+            <a href="https://www.instagram.com" target="_blank" class="instagram">
+                <img src="{% static 'images/instagram-si.png' %}" alt="ins">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="twitter">
+                <img src="{% static 'images/twitter-si.png' %}" alt="tw">
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="facebook">
+                <img src="{% static 'images/facebook-si.png' %}" alt="fb">
+            </a>
+        </div>
+        <h3>کلیه حقوق معنوی و مادی سایت نزد عیش حیاتک محفوظ است.</h3>
+    </div>
+</div>
+{% endblock content%}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <title>عیش حیاتک</title>
+</head>
+<body>
+    <div class="page">
+        <div id="drop-menu">
+            <ul>
+                <li class="first dropdown"><a href="{% url 'home' %}">خانه</a></li>
+                <li><a href="{% url 'about' %}">درباره</a></li>
+            </ul>
+            <div id="ask-block">
+                <h2>سوال دارید؟</h2>
+                <p>
+                    اگر در بارد زندگی خود و یا از دوست دیگر
+                    میخواهید چیزی در باره تغیر بدانید
+                </p>
+                <a id="d-ask-button" href="{% url 'ask' %}">
+                    بپرسید
+                </a>
+            </div>
+            <div id="d-social-media-icons">
+                <a href="https://www.instagram.com" target="_blank" class="instagram">
+                    <img src="{%static 'images/instagram-si.png' %}" alt="ins">
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="twitter">
+                    <img src="{% static 'images/twitter-si.png' %}" alt="tw">
+                </a>
+                <a href="https://www.facebook.com" target="_blank" class="facebook">
+                    <img src="{% static 'images/facebook-si.png' %}" alt="fb">
+                </a>
+            </div>
+            <h3>کلیه حقوق معنوی و مادی سایت نزد عیش حیاتک محفوظ است.</h3>
+        </div>
+        <div id="nov-bar">
+            <span id="headline">
+                <h1>عیش حیاتک</h1>
+            </span>
+            <ul>
+                <li class="first"><a href="{% url 'home' %}">خانه</a></li>
+                <li><a href="{% url 'about' %}">درباره</a></li>
+            </ul>
+            <div id="menu-icon">
+                <img src="{% static 'images/drop-down-menu-icon-large.png' %}" alt="img">
+            </div>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <h1 id="not-supported">عرض سکرین کمتر از 8.47 سانتی متر پشتبانی نمی گردد</h1>
+    <script src="{% static 'js/jquery-3.5.0.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

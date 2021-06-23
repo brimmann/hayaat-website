@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div id="question-form">
+    <h2>اگر در بارد زندگی خود و یا از دوست دیگر میخواهید چیزی در باره تغیر بدانید </h2>
+    <input name="full-name" placeholder="نام مکمل" id="full-name-input">
+    <input name="email-address" placeholder="ایمیل آدرس" id="email-address-input">
+    <textarea id="question-text-area" placeholder="سوال تان را اینجا درج نمایید"></textarea>
+    <button id="send-question">ارسال</button>
+</div>
+{% endblock content%}
+
