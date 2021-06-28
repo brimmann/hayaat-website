@@ -1,6 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load user_agents %}
+{% load custome_tags_filters %}
 
+
+
+{% block javascript %}
+<script>
+    var infinite = new Waypoint.Infinite({
+        element: $('.topics-browser')[0],
+        handler: function(direction){
+
+        },
+        offset: 'bottom-in-view',
+        onBeforePageLoad: function () {
+          $('.loading').show();
+        },
+        
+        onAfterPageLoad: function ($items) {
+          $('.loading').hide();
+        }
+      });
+  </script>
+{% endblock %}
 
 {% block content %}
 <div id="content">
@@ -15,22 +37,34 @@
                 </select>
             </div>
         </div>
-        <div id="topics-browser">
+        <div class="topics-browser">
             {% for article in articles %}
                 <div class="topic">
+                    <!-- {% if request|is_mobile or request|is_tablet %}
+                    <div class="mobile-picture">
+                        <img src="{{ article.picture_detail.url }}" alt="img">
+                    </div>
+                    {% else %}
+                    <div class="picture">
+                        <img src="{{ article.picture_list.url}}" alt="img">
+                    </div>
+                    {% endif %} -->
+
                     <div class="mobile-picture">
                         <img src="{{ article.picture_detail.url }}" alt="img">
                     </div>
                     <div class="picture">
-                        <img src="{{ article.picture_list.url }}" alt="img">
+                        <img src="{{ article.picture_list.url}}" alt="img">
                     </div>
+
+                    
                     <div class="text-header">
                         <h3> {{ article.title }} </h3>
                         <p>{{ article.brief }}</p>
 
                     </div>
                     <div class="post-items">
-                        <h4>{{ article.date }}</h4>
+                        <h4>{{ article.date|to_jalali }}</h4>
                         <div class="rating">
                             <img src="{% static 'images/star-icon.png' %}" alt="img">
                             <b>{{ article.rate }}</b>
@@ -41,6 +75,14 @@
                 </div>
             {% endfor %}
         </div>
+
+        <div class="loading" style="display: none;">
+            Loading...
+        </div>
+
+        {% if page_obj.has_next %}
+            <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
+        {% endif %}
     </div>
     <div id="side-bar">
         <h2>سوال دارید؟</h2>
@@ -65,4 +107,7 @@
         <h3>کلیه حقوق معنوی و مادی سایت نزد عیش حیاتک محفوظ است.</h3>
     </div>
 </div>
+
 {% endblock content%}
+
+

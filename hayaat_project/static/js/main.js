@@ -6,6 +6,12 @@ jQuery('#menu-icon').on('click', function () {
     } else {
         jQuery('#drop-menu').css('display', 'none');
         state = 0;
+        
     }
 })
+
+
+
+
+
 

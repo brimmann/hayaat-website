@@ -8,6 +8,11 @@ django = "==2.2"
 pylint = "*"
 pylint-django = "*"
 django-crispy-forms = "==1.7.2"
+pyyaml = "*"
+ua-parser = "*"
+user-agents = "*"
+django-user-agents = "*"
+persiantools = "*"
 
 [dev-packages]
 autopep8 = "*"

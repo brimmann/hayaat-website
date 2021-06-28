@@ -7,13 +7,14 @@
     padding: 0;
     width: 100%;
     font-family: "Arial", serif;
-    background-color: #effaf6;
+    background-color: #e6f1ed;
 }
 
 img {
     display: inline-block;
     max-width: 100%;
 }
+
 /*Universal End*/
 
 /*NovBar and DropdownMenu Style Start*/
@@ -299,7 +300,7 @@ img {
 }
 
 /*Topic*/
-#topics-browser {
+.topics-browser {
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
@@ -313,16 +314,17 @@ img {
 .topic {
     display: inline-block;
     position: relative;
-    max-height: 293px;
     width: 100%; /*1185px*/
-    margin-top: 50px;
+    margin-top: 10px;
+    box-sizing: content-box;
+    background-color: #f3fefa;
 
 }
 
 .picture {
     display: inline-block;
     position: absolute;
-    max-height: 293px;
+    
     width: 33%; /*390px*/
     margin: 0;
 }
@@ -331,7 +333,8 @@ img {
     display: inline-block;
     position: absolute;
     width: 41%; /*484*/
-    margin: 0 34% 0 0 /*19px*/
+    margin: 0 34% 0 0; /*19px*/
+    padding: 5px;
 }
 
 .text-header h3 {
@@ -353,6 +356,7 @@ img {
 .post-items {
     width: 25%;
     margin: 0 75% 0 0;
+    padding: 5px 0 10px 0;
 }
 
 .post-items h4 {
@@ -629,7 +633,7 @@ img {
         width: 100%;
     }
 
-    #topics-browser {
+    .topics-browser {
         float: none;
         margin: 60px auto 0 0;
         width: 100%;
@@ -684,18 +688,20 @@ img {
         display: none;
     }
 
-    #topics-browser{
+    .topics-browser{
         all: initial;
         display: block;
-        width: 90%;
-        margin: 60px auto 0 auto;
+        width: 100%;
+        margin: 60px 0 0 0;
     }
 
     .topic{
         all: initial;
         display: flex;
         flex-direction: column;
-        padding-top: 40px;
+        margin-top: 15px;
+        box-sizing: content-box;
+        background-color: #f3fefa;
     }
 
     .mobile-picture{
@@ -706,6 +712,7 @@ img {
 
     .text-header{
         all: initial;
+        margin: 0 10px;
     }
 
     .post-items{
@@ -714,6 +721,7 @@ img {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin: 0 10px;
     }
 
     .text-header h3{
@@ -971,7 +979,7 @@ img {
     }
 
     .topic{
-        padding-top: 30px;
+        padding-top: 15px;
     }
 }
 

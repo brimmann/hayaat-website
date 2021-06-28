@@ -4,8 +4,11 @@ from articles.models import Article
 
 class HomeView(ListView):
     model = Article
+    paginate_by = 5
     template_name = 'pages/home.html'
     context_object_name = 'articles'
+    
+    
     
 
 def readArticle(request):
