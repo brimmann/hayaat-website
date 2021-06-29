@@ -25,20 +25,37 @@
 {% endblock %}
 
 {% block content %}
+{% get_value as keyword %}
 <div id="content">
     <div id="main">
         <div id="filter">
             <div id="element">
                 <span>مرتب سازی</span>
-                <select>
-                    <option>بیشترین بازدید</option>
-                    <option>بیشترین امتیاز</option>
-                    <option>تازه ترین</option>
-                </select>
+                <form style = "display: inline" action="" method="get">
+                    <select name="order" onchange="this.form.submit()">
+                        <option value="visited" 
+                        {% if keyword == 'visited' %}
+                        selected
+                        {% endif %}
+                        >بیشترین بازدید</option>
+                        <option value="rated"
+                        {% if keyword == 'rated' %}
+                        selected
+                        {% endif %}
+                        >بیشترین امتیاز</option>
+                        <option value="dated"
+                        {% if keyword == 'dated' %}
+                        selected
+                        {% endif %}
+                        >تازه ترین</option>
+                    </select>
+                    
+                </form>
             </div>
         </div>
         <div class="topics-browser">
             {% for article in articles %}
+            
                 <div class="topic">
                     <!-- {% if request|is_mobile or request|is_tablet %}
                     <div class="mobile-picture">
@@ -67,10 +84,10 @@
                         <h4>{{ article.date|to_jalali }}</h4>
                         <div class="rating">
                             <img src="{% static 'images/star-icon.png' %}" alt="img">
-                            <b>{{ article.rate }}</b>
+                            <b>{{ article.rate|arabic_digit }}</b>
 
                         </div>
-                        <a href="{% url 'read' %}">بیشتر بخوانید</a>
+                        <a href="{% url 'read' article.pk %}">بیشتر بخوانید</a>
                     </div>
                 </div>
             {% endfor %}

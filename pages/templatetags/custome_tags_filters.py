@@ -24,7 +24,18 @@ def to_jalali(value):
     }
     
     j_date = JalaliDate.to_jalali(value.year, value.month, value.day)
-    j_date_display_string = en_to_fa(str(j_date.day)) + '/' + en_to_fa(months_name[j_date.month]) + '/' + en_to_fa(str(j_date.year))
+    j_date_display_string = en_to_fa(str(j_date.day)) + '/' + months_name[j_date.month] + '/' + en_to_fa(str(j_date.year))
 
     return j_date_display_string
+
+@register.filter
+def arabic_digit(value):
+    return en_to_fa(str(value))
+
+@register.simple_tag(takes_context=True)
+def get_value(context):
+    if 'order' in context['request'].GET:
+        return context['request'].GET['order']
+    else:
+        return 'visited'
     

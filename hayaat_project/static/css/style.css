@@ -290,14 +290,16 @@ img {
 }
 
 #element span {
-    font-size: 1.375em;
+    font-size: 1.2em;
 }
 
 #element select {
-    font-size: 1.375em;
+    font-size: 1.2em;
     font-family: Arial, serif;
     margin-right: 0.75em;
 }
+
+
 
 /*Topic*/
 .topics-browser {
@@ -499,7 +501,7 @@ input[name="star"]:checked + label {
 #article-content {
     display: flex;
     flex-direction: column;
-    background-color: #effaf6;
+    background-color: #e6f1ed;
     width: 80%;
     margin: 0 auto;
     padding-top: 110px;
