@@ -26,4 +26,4 @@ class Bridge(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.stars
+        return str(self.stars)

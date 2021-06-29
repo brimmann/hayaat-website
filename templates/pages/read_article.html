@@ -7,7 +7,7 @@
     <div id="picture"><img src="{{ article.picture_detail.url }}" alt="img"></div>
     <h2>{{ article.title }}</h2>
     {{ article.body|safe }}
-    <div id="stars" dir="ltr">
+    <div id="stars" dir="rtl">
         <div class="star-source">
             <svg>
                 <linearGradient x1="50%" y1="5.41294643%" x2="87.5527344%" y2="65.4921875%" id="grad">
@@ -22,41 +22,44 @@
             </svg>
 
         </div>
-        <div class="star-container">
-            <input type="radio" name="star" id="five">
-            <label for="five">
-                <svg class="star">
-                    <use xlink:href="#star"/>
-                </svg>
-            </label>
-            <input type="radio" name="star" id="four">
-            <label for="four">
-                <svg class="star">
-                    <use xlink:href="#star"/>
-                </svg>
-            </label>
-            <input type="radio" name="star" id="three">
-            <label for="three">
-                <svg class="star">
-                    <use xlink:href="#star"/>
-                </svg>
-            </label>
-            <input type="radio" name="star" id="two">
-            <label for="two">
-                <svg class="star">
-                    <use xlink:href="#star"/>
-                </svg>
-            </label>
-            <input type="radio" name="star" id="one">
-            <label for="one">
-                <svg class="star">
-                    <use xlink:href="#star"/>
-                </svg>
-            </label>
-
-        </div>
+        <form action="" method="get"> 
+            <div class="star-container">
+                <input type="radio" name="star" id="five" value="5">
+                <label for="five">
+                    <svg class="star">
+                        <use xlink:href="#star"/>
+                    </svg>
+                </label>
+                <input type="radio" name="star" id="four" value="4">
+                <label for="four">
+                    <svg class="star">
+                        <use xlink:href="#star"/>
+                    </svg>
+                </label>
+                <input type="radio" name="star" id="three" value="3">
+                <label for="three">
+                    <svg class="star">
+                        <use xlink:href="#star"/>
+                    </svg>
+                </label>
+                <input type="radio" name="star" id="two" value="2">
+                <label for="two">
+                    <svg class="star">
+                        <use xlink:href="#star"/>
+                    </svg>
+                </label>
+                <input type="radio" name="star" id="one" value="1">
+                <label for="one">
+                    <svg class="star">
+                        <use xlink:href="#star"/>
+                    </svg>
+                </label>
+            
+            </div>
+            <button id="send-rate" type="submit">ارسال ارزیابی</button>
+        </form>
     </div>
-    <button id="send-rate">ارسال ارزیابی</button>
+    
     <div id="move-up-container">
         <div id="up-icon"><img src="{% static 'images/move-up-icon.png' %}"></div>
         <h3 style="cursor: pointer; border-bottom: 3px solid darkgrey; padding: 5px"><a style="all: unset" href="#">به نقطه شروع برگردید</a></h3>
