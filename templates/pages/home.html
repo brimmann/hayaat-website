@@ -5,6 +5,7 @@
 
 
 
+
 {% block javascript %}
 <script>
     var infinite = new Waypoint.Infinite({
@@ -12,7 +13,6 @@
         handler: function(direction){
 
         },
-        offset: 'bottom-in-view',
         onBeforePageLoad: function () {
           $('.loading').show();
         },
@@ -22,9 +22,11 @@
         }
       });
   </script>
+
 {% endblock %}
 
 {% block content %}
+{% get_path_info as path_info %}
 {% get_value as keyword %}
 <div id="content">
     <div id="main">
@@ -54,8 +56,8 @@
             </div>
         </div>
         <div class="topics-browser">
-            {% for article in articles %}
             
+            {% for article in articles %}
                 <div class="topic">
                     <!-- {% if request|is_mobile or request|is_tablet %}
                     <div class="mobile-picture">
@@ -97,8 +99,8 @@
             Loading...
         </div>
 
-        {% if page_obj.has_next %}
-            <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
+        {% if articles.has_next %}
+            <a class="infinite-more-link" href="?page={{ articles.next_page_number }}">More</a>
         {% endif %}
     </div>
     <div id="side-bar">

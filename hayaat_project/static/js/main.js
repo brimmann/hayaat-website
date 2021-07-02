@@ -13,5 +13,3 @@ jQuery('#menu-icon').on('click', function () {
 
 
 
-
-

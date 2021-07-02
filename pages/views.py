@@ -1,27 +1,52 @@
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView, TemplateView
+from django.core.paginator import Paginator
+
 from articles.models import Article, Visitor, Bridge
 
-class HomeView(ListView):
-    model = Article
-    ordering = ['number_of_visit']
-    print("CALLED")
-    paginate_by = 5
-    template_name = 'pages/home.html'
-    context_object_name = 'articles'
+from .apps import PagesConfig
 
-    def get_queryset(self):
-        if 'order' in self.request.GET:
-            if self.request.GET['order'] == 'visited':
-                print("PRINTED")
-                return Article.objects.order_by('-number_of_visit')
-            elif self.request.GET['order'] == 'rated':
-                return Article.objects.order_by('-rate')
-            elif self.request.GET['order'] == 'dated':
-                return Article.objects.order_by('-date')
-        else:
-            return Article.objects.order_by('-number_of_visit')
+def homePage(request):
+    if 'order' in request.GET:
+        if request.GET['order'] == 'visited':
+            PagesConfig.current_order = 'visited'
+        elif request.GET['order'] == 'rated':
+            PagesConfig.current_order = 'rated'
+        elif request.GET['order'] == 'dated':
+            PagesConfig.current_order = 'dated'
+    else:
+        if 'page' not in request.GET:
+            PagesConfig.current_order = ''
     
+
+    if PagesConfig.current_order == 'visited' or PagesConfig.current_order == '':
+        entire_db = list(Article.objects.order_by('-number_of_visit'))
+        paginator = Paginator(entire_db, 2, allow_empty_first_page=False)
+        page = request.GET.get('page')
+        query_set = paginator.get_page(page)
+        return render(request, 'pages/home.html', {'articles': query_set,})
+
+    elif PagesConfig.current_order == 'rated':
+        entire_db = list(Article.objects.order_by('-rate'))
+        paginator = Paginator(entire_db, 2, allow_empty_first_page=False)
+        page = request.GET.get('page')
+        query_set = paginator.get_page(page)
+        return render(request, 'pages/home.html', {'articles': query_set,})
+
+    elif PagesConfig.current_order == 'dated':
+        entire_db = list(Article.objects.order_by('-date'))
+        paginator = Paginator(entire_db, 2, allow_empty_first_page=False)
+        page = request.GET.get('page')
+        query_set = paginator.get_page(page)
+        return render(request, 'pages/home.html', {'articles': query_set,})
+    
+    
+    
+    
+    
+
+    
+
     
     
 

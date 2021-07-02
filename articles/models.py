@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import F
 
 a = "HELLO"
 class Article(models.Model):
@@ -11,8 +12,11 @@ class Article(models.Model):
     picture_list = models.ImageField(upload_to='pictures/%Y/%m/%d/')
     picture_detail = models.ImageField(upload_to='pictures/%Y/%m/%d/')
 
+    class Meta:
+        F('date').desc()
+
     def __str__(self):
-        return self.title
+        return str(self.id)
 
 class Visitor(models.Model):
     ip = models.CharField(max_length=25)
