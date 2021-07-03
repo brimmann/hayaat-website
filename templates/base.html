@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
-    <title>عیش حیاتک</title>
+    <title lang="fa" dir="rtl">{% block title %}{% endblock %}</title>
 </head>
 <body>
     <div class="page">
@@ -40,7 +40,7 @@
         </div>
         <div id="nov-bar">
             <span id="headline">
-                <h1>عیش حیاتک</h1>
+                <h1>حیات</h1>
             </span>
             <ul>
                 <li class="first"><a href="{% url 'home' %}">خانه</a></li>

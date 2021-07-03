@@ -5,7 +5,7 @@
 
 
 
-
+{% block title %} خانه {% endblock %}
 {% block javascript %}
 <script>
     var infinite = new Waypoint.Infinite({
@@ -35,11 +35,7 @@
                 <span>مرتب سازی</span>
                 <form style = "display: inline" action="" method="get">
                     <select name="order" onchange="this.form.submit()">
-                        <option value="visited" 
-                        {% if keyword == 'visited' %}
-                        selected
-                        {% endif %}
-                        >بیشترین بازدید</option>
+                        
                         <option value="rated"
                         {% if keyword == 'rated' %}
                         selected
@@ -59,7 +55,7 @@
             
             {% for article in articles %}
                 <div class="topic">
-                    <!-- {% if request|is_mobile or request|is_tablet %}
+                    {% if request|is_mobile or request|is_tablet %}
                     <div class="mobile-picture">
                         <img src="{{ article.picture_detail.url }}" alt="img">
                     </div>
@@ -67,14 +63,9 @@
                     <div class="picture">
                         <img src="{{ article.picture_list.url}}" alt="img">
                     </div>
-                    {% endif %} -->
+                    {% endif %} 
 
-                    <div class="mobile-picture">
-                        <img src="{{ article.picture_detail.url }}" alt="img">
-                    </div>
-                    <div class="picture">
-                        <img src="{{ article.picture_list.url}}" alt="img">
-                    </div>
+                    
 
                     
                     <div class="text-header">

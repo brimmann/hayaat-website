@@ -37,7 +37,7 @@ def get_value(context):
     if 'order' in context['request'].GET:
         return context['request'].GET['order']
     else:
-        return 'visited'
+        return 'rated'
 
 @register.simple_tag(takes_context=True)
 def get_path_info(context):

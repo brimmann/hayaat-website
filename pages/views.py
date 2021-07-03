@@ -19,14 +19,14 @@ def homePage(request):
             PagesConfig.current_order = ''
     
 
-    if PagesConfig.current_order == 'visited' or PagesConfig.current_order == '':
+    if PagesConfig.current_order == 'visited':
         entire_db = list(Article.objects.order_by('-number_of_visit'))
         paginator = Paginator(entire_db, 2, allow_empty_first_page=False)
         page = request.GET.get('page')
         query_set = paginator.get_page(page)
         return render(request, 'pages/home.html', {'articles': query_set,})
 
-    elif PagesConfig.current_order == 'rated':
+    elif PagesConfig.current_order == 'rated'  or PagesConfig.current_order == '':
         entire_db = list(Article.objects.order_by('-rate'))
         paginator = Paginator(entire_db, 2, allow_empty_first_page=False)
         page = request.GET.get('page')
@@ -63,7 +63,8 @@ def readArticle(request, pk):
 
         temp = Visitor.objects.filter(ip__iexact=client_host)
         print(temp)
-        if str(temp)=='<QuerySet []>':
+        
+        if not temp:
             row = Visitor.objects.create(
                 ip=client_host,
             )
@@ -73,8 +74,6 @@ def readArticle(request, pk):
 
         temp1 = Bridge.objects.filter(visitor__exact=client_id)
         temp2 = Bridge.objects.filter(article__exact=article_id)
-        print(not temp1)
-        print(not temp2)
 
         if not temp1 or not temp2:
             Bridge.objects.create(
