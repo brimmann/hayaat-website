@@ -7,6 +7,7 @@ class Article(models.Model):
     body = models.TextField()
     brief = models.TextField()
     date = models.DateField(auto_now=True)
+    time = models.IntegerField()
     rate = models.DecimalField(max_digits=2, decimal_places=1)
     number_of_visit = models.IntegerField()
     picture_list = models.ImageField(upload_to='pictures/%Y/%m/%d/')

@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custome_tags_filters %}
 
 {% block title %} {{ article.title }} {% endblock %}
 
 {% block content %}
 <div id="article-content">
     <div id="picture"><img src="{{ article.picture_detail.url }}" alt="img"></div>
-    <h2>{{ article.title }}</h2>
+    <h2>{{ article.title }}<span style="color: brown; margin-right: 5px;">{{ article.time|arabic_digit }}&nbsp;دقیقه</span></h2>
     {{ article.body|safe }}
     <div id="stars" dir="rtl">
         <div class="star-source">

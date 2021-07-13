@@ -4,15 +4,13 @@
 
 {% block title %} سوال بپرسید {% endblock %}
 {% block content %}
-<div id="question-form">
+<form id="question-form" form action="{% url 'send-question' %}" method="POST"> {% csrf_token %}
     <h2>اگر در بارد زندگی خود و یا از دوست دیگر میخواهید چیزی در باره تغیر بدانید </h2>
-    <form action="{% url 'send-question' %}" method="POST"> {% csrf_token %}
-        <input name="full-name" placeholder="نام مکمل" id="full-name-input" type="text">
-        <input name="email-address" placeholder="ایمیل آدرس" id="email-address-input" type="text">
-        <textarea name="message" id="question-text-area" placeholder="سوال تان را اینجا درج نمایید"></textarea>
-        <button id="send-question">ارسال</button>
-        <h5 style="display:inline; color: {{ color }}">{{ message }}</h5>
-    </form>
+    <input name="full-name" placeholder="نام مکمل" id="full-name-input" type="text">
+    <input name="email-address" placeholder="ایمیل آدرس" id="email-address-input" type="text">
+    <textarea name="message" id="question-text-area" placeholder="سوال تان را اینجا درج نمایید"></textarea>
+    <button id="send-question">ارسال</button>
+    <h5 style="display:inline; color: {{ color }}">{{ message }}</h5>
     
 </div>
 {% endblock content%}

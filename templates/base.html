@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     <title lang="fa" dir="rtl">{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -26,13 +26,13 @@
                 </a>
             </div>
             <div id="d-social-media-icons">
-                <a href="https://www.instagram.com" target="_blank" class="instagram">
+                <a href="https://www.instagram.com/hayaatuplift" target="_blank" class="instagram">
                     <img src="{%static 'images/instagram-si.png' %}" alt="ins">
                 </a>
-                <a href="https://www.twitter.com" target="_blank" class="twitter">
+                <a href="https://www.twitter.com/hayaatuplift" target="_blank" class="twitter">
                     <img src="{% static 'images/twitter-si.png' %}" alt="tw">
                 </a>
-                <a href="https://www.facebook.com" target="_blank" class="facebook">
+                <a href="https://www.facebook.com/hayaatuplift" target="_blank" class="facebook">
                     <img src="{% static 'images/facebook-si.png' %}" alt="fb">
                 </a>
             </div>
@@ -47,7 +47,8 @@
                 <li><a href="{% url 'about' %}">درباره</a></li>
             </ul>
             <div id="menu-icon">
-                <img src="{% static 'images/drop-down-menu-icon-large.png' %}" alt="img">
+                <img alt="img" style="display: block;" id="close" src="{% static 'images/drop-down-menu-icon-large.png' %}">
+                <img alt="img" id="open" style="display: none" src="{% static 'images/drop-down-menu-icon-large-close.png' %}">
             </div>
         </div>
         {% block content %}

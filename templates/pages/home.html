@@ -69,7 +69,7 @@
 
                     
                     <div class="text-header">
-                        <h3> {{ article.title }} </h3>
+                        <h3> {{ article.title }} <span style="color: brown; margin-right: 5px;">{{ article.time|arabic_digit }}&nbsp;دقیقه</span></h3>
                         <p>{{ article.brief }}</p>
 
                     </div>
@@ -87,11 +87,11 @@
         </div>
 
         <div class="loading" style="display: none;">
-            Loading...
+            <h1 style="text-align: center;">در حال بارگذاری...</h1>
         </div>
 
         {% if articles.has_next %}
-            <a class="infinite-more-link" href="?page={{ articles.next_page_number }}">More</a>
+            <a class="infinite-more-link" href="?page={{ articles.next_page_number }}"></a>
         {% endif %}
     </div>
     <div id="side-bar">
@@ -104,13 +104,13 @@
             بپرسید
         </a>
         <div id="social-media-icons">
-            <a href="https://www.instagram.com" target="_blank" class="instagram">
+            <a href="https://www.instagram.com/hayaatuplift" target="_blank" class="instagram">
                 <img src="{% static 'images/instagram-si.png' %}" alt="ins">
             </a>
-            <a href="https://www.twitter.com" target="_blank" class="twitter">
+            <a href="https://www.twitter.com/hayaatuplift" target="_blank" class="twitter">
                 <img src="{% static 'images/twitter-si.png' %}" alt="tw">
             </a>
-            <a href="https://www.facebook.com" target="_blank" class="facebook">
+            <a href="https://www.facebook.com/hayaatuplift" target="_blank" class="facebook">
                 <img src="{% static 'images/facebook-si.png' %}" alt="fb">
             </a>
         </div>
