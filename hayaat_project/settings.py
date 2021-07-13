@@ -139,3 +139,9 @@ EMAIL_HOST_USER = 'hayaatsender@gmail.com'
 EMAIL_HOST_PASSWORD = 'Vhanstar_23'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
