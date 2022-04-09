@@ -6,6 +6,8 @@ import datetime
 
 register = template.Library()
 
+debug_info = 'Nothing yet'
+
 @register.filter
 def to_jalali(value):
     months_name = {
@@ -46,4 +48,8 @@ def get_path_info(context):
         return path_info
     else:
         return ''
+
+@register.simple_tag()
+def debug():
+    return debug_info
     

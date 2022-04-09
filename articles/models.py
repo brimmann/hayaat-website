@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import F
+from django.urls import reverse
 
 a = "HELLO"
 class Article(models.Model):
@@ -18,6 +19,9 @@ class Article(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    def get_absolute_url(self):
+        return reverse('read', args=[str(self.id)])
 
 class Visitor(models.Model):
     ip = models.CharField(max_length=25)
