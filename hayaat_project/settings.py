@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@&#u6oafkq$w&crl#gf$2hco0k*xs^ve+b#h055_b9@k_q&f2$'
+SECRET_KEY = 'It is a secret'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hayaat',
         'USER': 'postgres',
-        'PASSWORD': 'Vhanstar_23',
+        'PASSWORD': 'it is a secret',
         'HOST': 'localhost',
         'PORT': '5433',
     }
@@ -135,7 +135,7 @@ MEDIA_URL = '/media/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'hayaatsender@gmail.com'
-EMAIL_HOST_PASSWORD = 'Vhanstar_23'
+EMAIL_HOST_PASSWORD = 'it is a secret'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
